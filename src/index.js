@@ -1,8 +1,32 @@
 import React from "react";
 import ReactDom from "react-dom";
 
-function Greeting() {
-  return <h4>Greatting from react and git</h4>;
+import "./index.css";
+
+//setup vars
+const author = "Hunter S. Thompson, Ralph Steadman";
+const title = "Fear and Loathing in Las Vegas";
+const img =
+  "https://images-na.ssl-images-amazon.com/images/I/51B-PacEmGL._AC_SX184_.jpg";
+
+function BookList() {
+  return (
+    <section className="booklist">
+      <Book job="developer" />
+      <Book author="slawek" />
+    </section>
+  );
 }
 
-ReactDom.render(<Greeting />, document.getElementById("root"));
+const Book = (props) => {
+  console.log(props);
+  return (
+    <article className="book">
+      <img src={img} alt="" />
+      <h1>{title}</h1>
+      <h4>{props.author}</h4>
+    </article>
+  );
+};
+
+ReactDom.render(<BookList />, document.getElementById("root"));
