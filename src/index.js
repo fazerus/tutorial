@@ -1,29 +1,36 @@
+// 2:26
+
 import React from "react";
 import ReactDom from "react-dom";
 
 import "./index.css";
 
 //setup vars
-const author = "Hunter S. Thompson, Ralph Steadman";
-const title = "Fear and Loathing in Las Vegas";
-const img =
-  "https://images-na.ssl-images-amazon.com/images/I/51B-PacEmGL._AC_SX184_.jpg";
+const firstBook = {
+  img: "https://images-na.ssl-images-amazon.com/images/I/51B-PacEmGL._AC_SX184_.jpg",
+  title: "Fear and Loathing in Las Vegas",
+  author: "Hunter S. Thompson",
+};
 
 function BookList() {
   return (
     <section className="booklist">
-      <Book job="developer" />
-      <Book author="slawek" />
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book author={firstBook.title} />
     </section>
   );
 }
 
 const Book = (props) => {
-  console.log(props);
+  const { img, title, author } = props;
   return (
     <article className="book">
-      <img src={img} alt="" />
-      <h1>{title}</h1>
+      <img src={props.img} alt="" />
+      <h1>{props.title}</h1>
       <h4>{props.author}</h4>
     </article>
   );
